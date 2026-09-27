@@ -1,15 +1,29 @@
 # C2X
 
-C2X is a cross-platform desktop IDE that brings coding, an AI assistant, and real-time team collaboration into a single application. It's built to feel fast and native while giving teams a shared space to write, run, and review code together.
+[![Feature Requests](https://img.shields.io/badge/dynamic/json?color=blue&label=Feature%20Requests&query=%24.length&url=https%3A%2F%2Fapi.github.com%2Fsearch%2Fissues%3Fq%3Drepo%3AJeevan4125%2FCodeSync-IDE%2Bis%3Aopen%2Bis%3Aissue%2Blabel%3Afeature-request)](https://github.com/Jeevan4125/CodeSync-IDE/issues)
+[![Bugs](https://img.shields.io/badge/dynamic/json?color=blue&label=Bugs&query=%24.length&url=https%3A%2F%2Fapi.github.com%2Fsearch%2Fissues%3Fq%3Drepo%3AJeevan4125%2FCodeSync-IDE%2Bis%3Aopen%2Bis%3Aissue%2Blabel%3Abug)](https://github.com/Jeevan4125/CodeSync-IDE/issues)
+[![License](https://img.shields.io/badge/license-Unlicensed-lightgrey)](#license)
 
-## Overview
+## The Project
 
-C2X combines a full-featured code editor, an integrated terminal, an AI-powered assistant, and live multi-user collaboration — all in one desktop app, backed by its own server for accounts, tasks, and analytics.
+This repository is where C2X — a desktop IDE with a built-in AI assistant and real-time team collaboration — is developed. Everything from the editor and terminal to the collaboration server lives here, in the open, for anyone to read, use, or build on.
+
+## C2X
+
+<p align="center">
+  <img alt="C2X screenshot placeholder" src="https://via.placeholder.com/900x500?text=C2X+Screenshot">
+</p>
+
+> Replace the image above with a real screenshot or short GIF of the app in action — it's the first thing visitors see when they land on the repo.
+
+C2X combines a full-featured code editor, an integrated terminal, an AI-powered assistant, and live multi-user collaboration in a single cross-platform desktop application. It's built for developers who want to write, run, and review code without switching between separate tools.
+
+C2X is available for Windows, macOS, and Linux. See [Getting Started](#getting-started) below to build and run it from source.
 
 ## Features
 
 ### Code Editor
-A full-featured in-app editor with syntax highlighting, smart formatting, and support for a wide range of languages. It's designed to make reading and writing code comfortable for long sessions, with breadcrumb navigation so you always know where you are in a large project.
+A full-featured in-app editor with syntax highlighting, smart formatting, and support for a wide range of languages, plus breadcrumb navigation so you always know where you are in a large project.
 
 ### Integrated Terminal
 A real, fully interactive terminal built directly into the app — run builds, scripts, and commands without ever leaving your workspace. Multiple terminal sessions are supported side by side.
@@ -26,13 +40,13 @@ Create or join a shared room and code together in real time:
 - **Participant list & notifications** — always know who's online and what's changed
 
 ### Themes
-Personalize your workspace with switchable color themes and icon sets, so the editor looks and feels the way you want.
+Personalize your workspace with switchable color themes and icon sets.
 
 ### Snapshots
 Capture the state of your project at any point and restore it later — a lightweight safety net for experiments and risky changes.
 
 ### Project Tooling
-Additional panels for a complete workflow: a project map for navigating your codebase, a problems panel for surfacing errors and warnings, a ports panel for managing running services, and an output panel for logs and build results.
+A project map for navigating your codebase, a problems panel for surfacing errors and warnings, a ports panel for managing running services, and an output panel for logs and build results.
 
 ### Accounts & Security
 Secure sign-up and sign-in with email verification and password reset, so every user and every room is protected.
@@ -40,65 +54,26 @@ Secure sign-up and sign-in with email verification and password reset, so every 
 ### Analytics
 Built-in usage analytics to help understand activity and engagement across the app.
 
-## Getting Started
+## Contributing
 
-### Prerequisites
-- Node.js 18+
-- npm
-- A database instance for the backend (see backend setup)
+There are many ways to get involved:
 
-### 1. Clone the repo
+- [Submit bugs and feature requests](https://github.com/Jeevan4125/CodeSync-IDE/issues), and help verify them
+- Review [source code changes](https://github.com/Jeevan4125/CodeSync-IDE/pulls)
+- Improve documentation, from typos to new content
 
-```bash
-git clone https://github.com/Jeevan4125/CodeSync-IDE.git
-cd CodeSync-IDE
-```
+If you'd like to contribute code directly, please open an issue first to discuss what you'd like to change, then submit a pull request.
 
-### 2. Set up the backend
+## Feedback
 
-```bash
-cd backend
-npm install
-cp .env.example .env   # fill in your own configuration values
-npm run dev
-```
+- [File an issue](https://github.com/Jeevan4125/CodeSync-IDE/issues)
+- [Request a new feature](https://github.com/Jeevan4125/CodeSync-IDE/issues/new)
+- Star the repo if you find it useful — it helps others discover the project
 
-> **Note:** never commit a real `.env` file. Keep it out of version control and share only a `.env.example` with placeholder values.
+## Code of Conduct
 
-### 3. Run the desktop app
-
-```bash
-cd ..            # back to project root
-npm install
-npm run dev
-```
-
-The app will launch automatically once everything is ready.
-
-### Production build
-
-```bash
-npm run build            # build the app for production
-npm run build:electron   # package it into an installable desktop app
-```
-
-## Scripts
-
-| Command | Description |
-|---|---|
-| `npm run dev` | Run the app in development mode |
-| `npm run build` | Build the app for production |
-| `npm run build:electron` | Package the app into a desktop installer |
-| `npm run lint` | Type-check the project |
-| `npm run preview` | Preview the production build |
-
-Backend:
-
-| Command | Description |
-|---|---|
-| `npm run dev` | Run the backend server in development mode |
-| `npm start` | Run the backend server in production mode |
+This project expects all participants to be respectful and constructive. Harassment or abusive behavior of any kind will not be tolerated in issues, pull requests, or discussions.
 
 ## License
 
-Add a license (e.g. MIT) here — none is currently specified for this project.
+Add a license (e.g. MIT) here — none is currently specified for this project. Until a license is added, all rights are reserved by default.3
