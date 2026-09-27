@@ -1,70 +1,51 @@
-# CodeSync IDE
+# C2X
 
-A cross-platform desktop IDE built with Electron, React, and Monaco Editor — with an integrated AI assistant, real-time team collaboration, and its own backend for auth, tasks, and analytics.
+C2X is a cross-platform desktop IDE that brings coding, an AI assistant, and real-time team collaboration into a single application. It's built to feel fast and native while giving teams a shared space to write, run, and review code together.
+
+## Overview
+
+C2X combines a full-featured code editor, an integrated terminal, an AI-powered assistant, and live multi-user collaboration — all in one desktop app, backed by its own server for accounts, tasks, and analytics.
 
 ## Features
 
-- **Code editor** — Monaco Editor with syntax highlighting, IntelliSense-style completions, and Prettier-based formatting
-- **Integrated terminal** — real shell access in-app via `node-pty` and `xterm.js`
-- **AI assistant** — in-editor chat sidebar with code suggestions, powered by Groq
-- **Team collaboration** — shared rooms with live editor sync, chat, a task board, and an activity timeline over Socket.IO
-- **Themes** — customizable color and icon themes
-- **Snapshots** — save and restore project state
-- **Project map, ports, problems & output panels** — VS Code–style bottom panel tooling
-- **Authentication** — JWT-based auth with email verification and password reset
+### Code Editor
+A full-featured in-app editor with syntax highlighting, smart formatting, and support for a wide range of languages. It's designed to make reading and writing code comfortable for long sessions, with breadcrumb navigation so you always know where you are in a large project.
 
-## Tech stack
+### Integrated Terminal
+A real, fully interactive terminal built directly into the app — run builds, scripts, and commands without ever leaving your workspace. Multiple terminal sessions are supported side by side.
 
-**Desktop app**
-- Electron (main + preload, contextIsolation, no nodeIntegration)
-- React 18 + TypeScript
-- Vite
-- Tailwind CSS
-- Zustand (state management)
-- Monaco Editor, xterm.js
+### AI Assistant
+A built-in chat sidebar that understands your code and can answer questions, explain snippets, suggest fixes, and generate new code directly in the editor. Conversations are saved per session so you can pick up where you left off.
 
-**Backend**
-- Node.js + Express
-- Socket.IO (real-time collaboration)
-- PostgreSQL / SQLite
-- JWT auth, bcrypt, Nodemailer / Resend
-- Groq SDK (AI assistant)
+### Team Collaboration
+Create or join a shared room and code together in real time:
+- **Live editor sync** — see teammates' edits and cursors as they happen
+- **In-room chat** — talk through changes without switching apps
+- **Task board** — track who's working on what, right inside the IDE
+- **Activity timeline** — a running log of what's happened in the session
+- **Participant list & notifications** — always know who's online and what's changed
 
-## Project structure
+### Themes
+Personalize your workspace with switchable color themes and icon sets, so the editor looks and feels the way you want.
 
-```
-codesync/
-├── electron/                # Electron main process, preload, IPC handlers
-├── src/renderer/
-│   ├── components/          # UI: editor, terminal, hub, bottom panel, etc.
-│   ├── modules/              # Feature modules
-│   │   ├── editor/
-│   │   ├── ai-assistant/
-│   │   ├── team-collaboration/
-│   │   ├── theme-manager/
-│   │   ├── profiles/
-│   │   ├── settings/
-│   │   ├── keyboard-shortcuts/
-│   │   ├── breadcrumb/
-│   │   └── prettier-formatter/
-│   ├── services/ store/ hooks/ utils/ types/
-├── backend/
-│   └── src/
-│       ├── modules/          # ai-assistant, team-collaboration
-│       ├── controllers/ models/ routes/ sockets/
-│       ├── middleware/ config/ utils/
-│       └── server.js
-├── package.json
-└── vite.config.ts
-```
+### Snapshots
+Capture the state of your project at any point and restore it later — a lightweight safety net for experiments and risky changes.
 
-## Getting started
+### Project Tooling
+Additional panels for a complete workflow: a project map for navigating your codebase, a problems panel for surfacing errors and warnings, a ports panel for managing running services, and an output panel for logs and build results.
+
+### Accounts & Security
+Secure sign-up and sign-in with email verification and password reset, so every user and every room is protected.
+
+### Analytics
+Built-in usage analytics to help understand activity and engagement across the app.
+
+## Getting Started
 
 ### Prerequisites
-
 - Node.js 18+
 - npm
-- PostgreSQL (or SQLite for local dev)
+- A database instance for the backend (see backend setup)
 
 ### 1. Clone the repo
 
@@ -78,28 +59,11 @@ cd CodeSync-IDE
 ```bash
 cd backend
 npm install
-cp .env.example .env   # then fill in your own values
+cp .env.example .env   # fill in your own configuration values
 npm run dev
 ```
 
-Required environment variables (`backend/.env`):
-
-```
-PORT=
-DATABASE_URL=
-JWT_SECRET=
-JWT_REFRESH_SECRET=
-SMTP_HOST=
-SMTP_PORT=
-SMTP_SECURE=
-SMTP_USER=
-SMTP_PASS=
-SMTP_FROM=
-FRONTEND_URL=
-GROQ_API_KEY=
-```
-
-> **Note:** never commit a real `.env` file. Add it to `.gitignore` and provide a `.env.example` with placeholder values instead.
+> **Note:** never commit a real `.env` file. Keep it out of version control and share only a `.env.example` with placeholder values.
 
 ### 3. Run the desktop app
 
@@ -109,31 +73,31 @@ npm install
 npm run dev
 ```
 
-This starts the Vite dev server on port `5173` and launches the Electron window automatically once Vite is ready.
+The app will launch automatically once everything is ready.
 
 ### Production build
 
 ```bash
-npm run build            # build the renderer to /dist
-npm run build:electron   # package the app with electron-builder
+npm run build            # build the app for production
+npm run build:electron   # package it into an installable desktop app
 ```
 
 ## Scripts
 
 | Command | Description |
 |---|---|
-| `npm run dev` | Run Vite + Electron together in dev mode |
-| `npm run build` | Type-check and build the renderer |
-| `npm run build:electron` | Build and package the desktop app |
-| `npm run lint` | Type-check without emitting output |
-| `npm run preview` | Preview the built renderer |
+| `npm run dev` | Run the app in development mode |
+| `npm run build` | Build the app for production |
+| `npm run build:electron` | Package the app into a desktop installer |
+| `npm run lint` | Type-check the project |
+| `npm run preview` | Preview the production build |
 
 Backend:
 
 | Command | Description |
 |---|---|
-| `npm run dev` | Run the backend with nodemon |
-| `npm start` | Run the backend in production mode |
+| `npm run dev` | Run the backend server in development mode |
+| `npm start` | Run the backend server in production mode |
 
 ## License
 
