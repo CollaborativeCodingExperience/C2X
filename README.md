@@ -4,7 +4,7 @@ A cross-platform desktop IDE built with Electron, React, and Monaco Editor — w
 
 ## Features
 
-- **Code editor** — Monaco Editor (the engine behind VS Code) with syntax highlighting, IntelliSense-style completions, and Prettier-based formatting
+- **Code editor** — Monaco Editor with syntax highlighting, IntelliSense-style completions, and Prettier-based formatting
 - **Integrated terminal** — real shell access in-app via `node-pty` and `xterm.js`
 - **AI assistant** — in-editor chat sidebar with code suggestions, powered by Groq
 - **Team collaboration** — shared rooms with live editor sync, chat, a task board, and an activity timeline over Socket.IO
